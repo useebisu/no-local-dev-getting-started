@@ -78,7 +78,6 @@ end
 # 親登録
 post "/parent_new_complete" do
   @parent = Parent.new
-  @parent.parent__c = parent.sfid
   @parent.sei__c = params[:sei__c]
   @parent.mei__c = params[:mei__c]
   @parent.save!
