@@ -30,14 +30,14 @@ end
 # e
 class Parent < ActiveRecord::Base
   self.table_name = 'salesforce.parent__c'
-  has_many :childs, primary_key: 'sfid', foreign_key: 'parent__c', class_name: 'Child'
+#  has_many :childs, primary_key: 'sfid', foreign_key: 'parent__c', class_name: 'Child'
 
 end
 
 # q
 class Child < ActiveRecord::Base
   self.table_name = 'salesforce.child__c'
-  belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
+#  belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
 end
 
 
@@ -54,7 +54,9 @@ get "/parent_detail/:id" do
 
   logger.info(@parent.inspect)
 
-  logger.info(@parent.childs.inspect)
+  child = Child.where(:parent__c => @parent.sfid).first
+
+  logger.info(child.inspect)
 
 
   erb :parent_detail
