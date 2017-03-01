@@ -49,5 +49,8 @@ end
 get "/parent_detail/:id" do
   id =  params[:id]
   @parent = Parent.where(:id => id)
+
+  logger.info(@parent.inspect)
+
   erb :parent_detail
 end
