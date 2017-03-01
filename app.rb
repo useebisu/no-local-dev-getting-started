@@ -30,14 +30,14 @@ end
 # 親
 class Parent < ActiveRecord::Base
   self.table_name = 'salesforce.parent__c'
-#  has_many :childs, primary_key: 'sfid', foreign_key: 'parent__c', class_name: 'Child'
+  has_many :childs, primary_key: 'sfid', foreign_key: 'parent__c', class_name: 'Child'
 
 end
 
 # 子
 class Child < ActiveRecord::Base
   self.table_name = 'salesforce.child__c'
-#  belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
+  belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
 end
 
 
@@ -60,6 +60,9 @@ get "/parent_detail/:id" do
 
   logger.info('う')
   logger.info(child.inspect)
+
+  logger.info('え')
+  logger.info(@parent.childs.inspect)
 
 
   erb :parent_detail
