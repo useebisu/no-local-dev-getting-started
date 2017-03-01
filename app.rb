@@ -83,11 +83,17 @@ post "/chile_new_complete" do
   logger.info(params.inspect)
   logger.info('いいい')
 
-  parent_id = params[:parent_id]
-  path = 'parent_detail/' + parent_id.to_s
-  logger.info('ううう')
-  logger.info(path)
 
+  parent_id = params[:parent_id]
+  parent = Parent.where(:id => parent_id).first
+
+  child = Child.new
+  child.parent__c = parent.sfid
+  child.sei__c = params[:sei__c]
+  child.mei__c = params[:mei__c]
+  child.save!
+
+  path = 'parent_detail/' + parent_id.to_s
   redirect path
 
 end
