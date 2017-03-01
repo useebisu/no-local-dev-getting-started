@@ -85,6 +85,6 @@ post "/chile_new_complete" do
 
   parent_id = params[parent_id]
 
-  redirect 'parent_detail/#{parent_id}'
+  redirect 'parent_detail/' + parent_id.to_s
 
 end
