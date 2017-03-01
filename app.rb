@@ -62,5 +62,5 @@ get "/parent_detail/:id" do
   logger.info(child.inspect)
 
 
-#  erb :parent_detail
+  erb :parent_detail
 end
