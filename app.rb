@@ -81,7 +81,7 @@ post "/parent_new_complete" do
   @parent.sei__c = params[:sei__c]
   @parent.mei__c = params[:mei__c]
   @parent.save!
-  path = 'parent_detail/' + @parent.id_to_s
+  path = 'parent_detail/' + @parent.id.to_s
   redirect path
 end
 
