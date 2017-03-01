@@ -15,7 +15,7 @@
         <td><%= parent.sfid %></td>
         <td><%= parent.sei__c %></td>
         <td><%= parent.mei__c %></td>
-        <%= link_to '詳細', parent_detail_path(:id => parent.id) %>
+        <td><a href="/parent_detail/<%= parent.id %>">detail</a></p>
       </tr>
     <% end %>
   </table>
