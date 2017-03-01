@@ -1,8 +1,16 @@
 <div class="container">
 
   <a href="/parent_detail/<%= @parent_id %>">親詳細へ戻る</a>
+  <br />
 
   子登録
   <br />
+
+  <form method="post" action="/chile_new_complete">
+    <input type= "hidden" name="parent_id" value="<%=@parent_id  %>"><br />
+    姓：<input type= "text" name="sei__c"><br />
+    名：<input type= "text" name="mei__c"><br />
+    <input type= "submit" value="登録"><br />
+  </form>
 
 </div>

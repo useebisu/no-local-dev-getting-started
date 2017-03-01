@@ -75,3 +75,13 @@ get "/child_new/:parent_id" do
   @parent_id =  params[:parent_id]
   erb :child_new
 end
+
+
+post "/chile_new_complete" do
+
+  logger.info('あああ')
+  logger.info(params.inspect)
+  logger.info('いいい')
+
+  erb :index_parents
+end
