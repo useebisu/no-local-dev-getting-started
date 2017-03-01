@@ -84,7 +84,10 @@ post "/chile_new_complete" do
   logger.info('いいい')
 
   parent_id = params[parent_id]
+  path = 'parent_detail/' + parent_id.to_s
+  logger.info('ううう')
+  logger.info(path)
 
-  redirect 'parent_detail/' + parent_id.to_s
+  redirect path
 
 end
