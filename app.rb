@@ -27,27 +27,28 @@ get "/create" do
 end
 
 
-# 親
+# 親エンティティ
 class Parent < ActiveRecord::Base
   self.table_name = 'salesforce.parent__c'
   has_many :childs, primary_key: 'sfid', foreign_key: 'parent__c', class_name: 'Child'
 
 end
 
-# 子
+# 子エンティティ
 class Child < ActiveRecord::Base
   self.table_name = 'salesforce.child__c'
   belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
 end
 
 
-
+# 親一覧
 get "/parents" do
   @parents = Parent.all
   erb :index_parents
 end
 
 
+# 親詳細
 get "/parent_detail/:id" do
   id =  params[:id]
   @parent = Parent.where(:id => id).first
@@ -69,21 +70,33 @@ get "/parent_detail/:id" do
   erb :parent_detail
 end
 
+# 親登録画面遷移
+get "/parent_new" do
+  erb :parent_new
+end
+
+# 親登録
+post "/parent_new_complete" do
+  @parent = Parent.new
+  @parent.parent__c = parent.sfid
+  @parent.sei__c = params[:sei__c]
+  @parent.mei__c = params[:mei__c]
+  @parent.save!
+  path = 'parent_detail/' + @parent.id_to_s
+  redirect path
+end
 
 
+
+
+# 子登録画面遷移
 get "/child_new/:parent_id" do
   @parent_id =  params[:parent_id]
   erb :child_new
 end
 
-
+# 子登録
 post "/chile_new_complete" do
-
-  logger.info('あああ')
-  logger.info(params.inspect)
-  logger.info('いいい')
-
-
   parent_id = params[:parent_id]
   parent = Parent.where(:id => parent_id).first
 
@@ -92,8 +105,7 @@ post "/chile_new_complete" do
   child.sei__c = params[:sei__c]
   child.mei__c = params[:mei__c]
   child.save!
-
   path = 'parent_detail/' + parent_id.to_s
   redirect path
-
 end
+
