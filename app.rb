@@ -25,3 +25,15 @@ get "/create" do
   dashboard_url << "apps/#{match[1]}/resources" if match && match[1]
   redirect to(dashboard_url)
 end
+
+
+
+class Parent < ActiveRecord::Base
+  self.table_name = 'salesforce.parent__c'
+end
+
+
+get "/parents" do
+  @parents = Parent.all
+  erb :index_parents
+end
