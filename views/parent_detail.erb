@@ -1,6 +1,7 @@
 <div class="container">
 
-  親詳細<br />
+  親詳細
+  <br />
   <a href="/parents">親一覧へ戻る</a>
 
   <table class="table table-striped table-bordered">
@@ -18,10 +19,9 @@
       <td><%= @parent.mei__c %></td>
     </tr>
   </table>
-
-
-
-   子一覧
+  <br />
+  <br />
+   子一覧　<a href="/child_new/<%= @parent.id %>">new</a>
   <table class="table table-striped table-bordered">
     <tr>
       <th>Id</th>

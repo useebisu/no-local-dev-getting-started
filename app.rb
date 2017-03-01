@@ -68,3 +68,10 @@ get "/parent_detail/:id" do
 
   erb :parent_detail
 end
+
+
+
+get "/child_new/:parent_id" do
+  @parent_id =  params[:parent_id]
+  erb :child_new
+end
