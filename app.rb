@@ -48,7 +48,7 @@ end
 
 get "/parent_detail/:id" do
   id =  params[:id]
-  @parent = Parent.where(:id => id)
+  @parent = Parent.where(:id => id).first
 
   logger.info(@parent.inspect)
 
