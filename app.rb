@@ -32,6 +32,13 @@ class Parent < ActiveRecord::Base
   self.table_name = 'salesforce.parent__c'
 end
 
+# Žq
+class Child < ActiveRecord::Base
+  self.table_name = 'salesforce.child__c'
+  belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
+end
+
+
 
 get "/parents" do
   @parents = Parent.all
@@ -40,6 +47,7 @@ end
 
 
 get "/parent_detail/:id" do
-  puts params[:id]
+  id =  params[:id]
+  @parent = Parent.find(id)
   erb :parent_detail
 end
