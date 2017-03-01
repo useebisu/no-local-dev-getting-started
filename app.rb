@@ -48,6 +48,6 @@ end
 
 get "/parent_detail/:id" do
   id =  params[:id]
-  @parent = Parent.find(id)
+  @parent = Parent.where(:id => id)
   erb :parent_detail
 end
