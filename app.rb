@@ -83,7 +83,7 @@ post "/chile_new_complete" do
   logger.info(params.inspect)
   logger.info('いいい')
 
-  parent_id = params[parent_id]
+  parent_id = params[:parent_id]
   path = 'parent_detail/' + parent_id.to_s
   logger.info('ううう')
   logger.info(path)
