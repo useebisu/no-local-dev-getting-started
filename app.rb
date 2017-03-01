@@ -83,5 +83,8 @@ post "/chile_new_complete" do
   logger.info(params.inspect)
   logger.info('いいい')
 
-  erb :index_parents
+  parent_id = params[parent_id]
+
+  redirect 'parent_detail/#{parent_id}'
+
 end
