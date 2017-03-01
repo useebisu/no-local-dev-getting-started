@@ -6,6 +6,7 @@
       <th>sfid</th>
       <th>姓</th>
       <th>名</th>
+      <th>詳細</th>
     </tr>
 
     <% @parents.each do |parent| %>
@@ -14,6 +15,7 @@
         <td><%= parent.sfid %></td>
         <td><%= parent.sei__c %></td>
         <td><%= parent.mei__c %></td>
+        <%= link_to '詳細', parent_detail_path(:id => parent.id) %>
       </tr>
     <% end %>
   </table>

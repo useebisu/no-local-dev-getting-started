@@ -27,7 +27,7 @@ get "/create" do
 end
 
 
-
+# e
 class Parent < ActiveRecord::Base
   self.table_name = 'salesforce.parent__c'
 end
@@ -36,4 +36,10 @@ end
 get "/parents" do
   @parents = Parent.all
   erb :index_parents
+end
+
+
+get "/parent_detail/:id" do
+  puts prams[:id]
+  erb :parent_detail
 end
