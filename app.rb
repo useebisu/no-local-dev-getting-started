@@ -40,6 +40,6 @@ end
 
 
 get "/parent_detail/:id" do
-  puts prams[:id]
+  puts params[:id]
   erb :parent_detail
 end
