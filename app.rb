@@ -27,14 +27,14 @@ get "/create" do
 end
 
 
-# �e
+# 親
 class Parent < ActiveRecord::Base
   self.table_name = 'salesforce.parent__c'
 #  has_many :childs, primary_key: 'sfid', foreign_key: 'parent__c', class_name: 'Child'
 
 end
 
-# �q
+# 子
 class Child < ActiveRecord::Base
   self.table_name = 'salesforce.child__c'
 #  belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
@@ -52,10 +52,13 @@ get "/parent_detail/:id" do
   id =  params[:id]
   @parent = Parent.where(:id => id).first
 
+  logger.info('あ')
   logger.info(@parent.inspect)
 
-  child = Child.where(:parent__c => @parent.sfid).first
+  logger.info('い')
+  child = Child.where(:parent__c => @parent.sfid)
 
+  logger.info('う')
   logger.info(child.inspect)
 
 
