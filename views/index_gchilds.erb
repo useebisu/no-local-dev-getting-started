@@ -1,0 +1,24 @@
+<div class="container">
+
+  孫一覧　<a href="/gchild_new">new</a>
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Id</th>
+      <th>sfid</th>
+      <th>uuid</th>
+      <th>text</th>
+      <th>詳細</th>
+    </tr>
+
+    <% @gchilds.each do |gchild| %>
+      <tr>
+        <td><%= gchild.id %></td>
+        <td><%= gchild.sfid %></td>
+        <td><%= gchild.uuid__c %></td>
+        <td><%= gchild.text__c %></td>
+        <td><a href="/gchild_detail/<%= gchild.id %>">detail</a></p>
+      </tr>
+    <% end %>
+  </table>
+
+</div>

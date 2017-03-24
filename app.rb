@@ -40,6 +40,11 @@ class Child < ActiveRecord::Base
   belongs_to :parent, primary_key: :sfid, foreign_key: :parent__c
 end
 
+# 孫エンティティ
+class Grandchild < ActiveRecord::Base
+  self.table_name = 'salesforce.grandchild__c'
+end
+
 
 # 親一覧
 get "/parents" do
@@ -106,6 +111,37 @@ post "/chile_new_complete" do
   child.external_id__c = SecureRandom.uuid
   child.save!
   path = 'parent_detail/' + parent_id.to_s
+  redirect path
+end
+
+
+# 孫一覧
+get "/gchilds" do
+  @gchilds = Grandchild.all
+  erb :index_gchilds
+end
+
+
+# 孫詳細
+get "/gchild_detail/:id" do
+  id =  params[:id]
+  @gchild = Grandchild.where(:id => id).first
+
+  erb :gchild_detail
+end
+
+# 孫登録画面遷移
+get "/gchild_new" do
+  erb :gchild_new
+end
+
+# 孫登録
+post "/gchild_new_complete" do
+  @gchild = Grandchild.new
+  @gchild.uuid__c = params[:uuid__c]
+  @gchild.text__c = params[:text__c]
+  @gchild.save!
+  path = 'gchild_detail/' + @gchild.id.to_s
   redirect path
 end
 
