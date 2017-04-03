@@ -7,6 +7,7 @@
       <th>sfid</th>
       <th>uuid</th>
       <th>text</th>
+      <th>mail</th>
       <th>詳細</th>
     </tr>
 
@@ -16,6 +17,7 @@
         <td><%= gchild.sfid %></td>
         <td><%= gchild.uuid__c %></td>
         <td><%= gchild.text__c %></td>
+        <td><%= gchild.mail__c %></td>
         <td><a href="/gchild_detail/<%= gchild.id %>">detail</a></p>
       </tr>
     <% end %>
