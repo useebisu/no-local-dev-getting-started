@@ -145,3 +145,11 @@ post "/gchild_new_complete" do
   redirect path
 end
 
+# 孫更新
+post "/gchild_edit_complete" do
+  @gchild = Grandchild.where(:id => params[:id]).first
+  @gchild.uuid__c = params[:uuid__c]
+  @gchild.text__c = params[:text__c]
+  @gchild.save!
+  erb :index_gchilds
+end
