@@ -25,7 +25,7 @@
 
   <form method="post" action="/gchild_edit_complete">
 
-    id：<input type= "text" name="id"><%= @gchild.id %></input><br />
+    id：<input type= "text" name="id" value='#{@gchild.id}'><%= @gchild.id %></input><br />
     uuid：<input type= "text" name="uuid__c"><%= @gchild.uuid__c %></input><br />
     text：<input type= "text" name="text__c"><%= @gchild.text__c %></input><br />
     <input type= "submit" value="更新"><br />
