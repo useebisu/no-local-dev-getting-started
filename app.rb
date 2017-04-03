@@ -140,6 +140,7 @@ post "/gchild_new_complete" do
   @gchild = Grandchild.new
   @gchild.uuid__c = params[:uuid__c]
   @gchild.text__c = params[:text__c]
+  @gchild.mail__c = params[:mail__c]
   @gchild.save!
   path = 'gchild_detail/' + @gchild.id.to_s
   redirect path
@@ -150,6 +151,7 @@ post "/gchild_edit_complete" do
   @gchild = Grandchild.where(:id => params[:id]).first
   @gchild.uuid__c = params[:uuid__c]
   @gchild.text__c = params[:text__c]
+  @gchild.mail__c = params[:mail__c]
   @gchild.save!
   redirect 'gchilds'
 end

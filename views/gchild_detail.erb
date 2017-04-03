@@ -10,12 +10,14 @@
       <th>sfid</th>
       <th>uuid</th>
       <th>text</th>
+      <th>mail</th>
     </tr>
     <tr>
       <td><%= @gchild.id %></td>
       <td><%= @gchild.sfid %></td>
       <td><%= @gchild.uuid__c %></td>
       <td><%= @gchild.text__c %></td>
+      <td><%= @gchild.mail__c %></td>
     </tr>
   </table>
   <br />
@@ -27,6 +29,7 @@
     id：<input type= "text" name="id" value='<%= @gchild.id %>'>※更新禁止！<br />
     uuid：<input type= "text" name="uuid__c" value='<%= @gchild.uuid__c %>'><br />
     text：<input type= "text" name="text__c" value='<%= @gchild.text__c %>'><br />
+    mail：<input type= "text" name="mail__c" value='<%= @gchild.mail__c %>'><br />
     <input type= "submit" value="更新"><br />
   </form>
 
