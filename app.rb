@@ -151,5 +151,5 @@ post "/gchild_edit_complete" do
   @gchild.uuid__c = params[:uuid__c]
   @gchild.text__c = params[:text__c]
   @gchild.save!
-  erb :index_gchilds
+  redirect 'gchilds'
 end
