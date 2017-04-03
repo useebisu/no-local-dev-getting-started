@@ -23,19 +23,13 @@
 
 
 
-  <%= form_for(@gchild, :url => {:action => 'gchild_edit_complete'} ) do |f| %>
-    <%= f.hidden_field :id, id %>
-    <table>
-      <tr>
-        <td><%= f.label :uuid__c %></td>
-        <td><%= f.text_field :uuid__c %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :text__c %></td>
-        <td><%= f.text_field :text__c %></td>
-      </tr>
-      </table>
-      <%= f.submit "更新" %>
-  <% end %>
+  <form method="post" action="/gchild_edit_complete">
+
+    id：<input type= "text" name="id"><%= @gchild.id %></input><br />
+    uuid：<input type= "text" name="uuid__c"><%= @gchild.uuid__c %></input><br />
+    text：<input type= "text" name="text__c"><%= @gchild.text__c %></input><br />
+    <input type= "submit" value="更新"><br />
+  </form>
+
 
 </div>
