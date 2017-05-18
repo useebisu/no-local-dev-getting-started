@@ -1,5 +1,5 @@
 # app.rb
-
+require 'tilt/erb'
 require 'rest-client'
 require 'heroku-api'
 require 'sinatra'
@@ -166,8 +166,9 @@ get "/herokus" do
   @apps = @heroku_api.get_apps.body
 
   @response = RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
-  logger.info('----------Salesforce AP0 status--------------------')
-  # logger.info(@response)
+  logger.info('----------Salesforce AP0 status start--------------------')
+  logger.info(@response)
+  logger.info('----------Salesforce AP0 status end--------------------')
 
 =begin
   @apps.each do |app|
