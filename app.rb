@@ -196,10 +196,10 @@ end
 # sfs
 get "/sfs" do
 
-  @response = RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
-  logger.info('----------Salesforce AP0 status start--------------------')
-  logger.info(@response)
-  logger.info('----------Salesforce AP0 status end--------------------')
+  RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
+  #logger.info('----------Salesforce AP0 status start--------------------')
+  #logger.info(@response)
+  #logger.info('----------Salesforce AP0 status end--------------------')
 
   erb :index_sfs
 end
