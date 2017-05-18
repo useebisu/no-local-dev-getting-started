@@ -158,7 +158,7 @@ end
 
 
 require 'heroku-api'
-require 'rest-client'
+#require 'rest-client'
 
 # heroku-api
 get "/herokus" do
