@@ -180,7 +180,7 @@ get "/herokus" do
 #  logger.info(@result_sort.class)
 
   @result_sort.each do |sorttest|
-    logger.info('id:'+sorttest[:id])
+    logger.info('id:'+sorttest[:id].to_s)
   end
 
   logger.info('----------Salesforce AP0 status end--------------------')
