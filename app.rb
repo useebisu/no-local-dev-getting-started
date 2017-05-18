@@ -1,5 +1,7 @@
 # app.rb
 
+require 'rest-client'
+require 'heroku-api'
 require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
@@ -157,8 +159,6 @@ post "/gchild_edit_complete" do
 end
 
 
-require 'heroku-api'
-require 'rest-client'
 
 # heroku-api
 get "/herokus" do
