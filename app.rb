@@ -168,7 +168,6 @@ get "/herokus" do
   @response = RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
   logger.info('----------Salesforce AP0 status--------------------')
   logger.info(@response)
-  logger.info(@response.class)
 
 =begin
   @apps.each do |app|
