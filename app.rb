@@ -171,14 +171,10 @@ get "/herokus" do
   logger.info(@hoge)
   @result = JSON.parse(@hoge)
 
-  @result_sort = @result['Maintenances'].sort! do |a, b|
-    a[:id] <=> b[:id]
-  end
-
-  logger.info('result_sort')
-  logger.info(@result_sort)
-  logger.info(@result_sort.class)
-
+  #sort
+  hogeArray = @result['Maintenances'].sort_by{|val| val['id']}
+  logger.info('----------array--------------------')
+  logger.info(hogeArray)
 
 
   logger.info('----------Salesforce AP0 status end--------------------')
