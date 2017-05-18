@@ -175,9 +175,9 @@ get "/herokus" do
     a[:id] <=> b[:id]
   end
 
-  @result_sort['Maintenances'].each do |mainte|
-    logger.info('id:' + mainte['id'].to_s)
-  end
+  logger.info('result_sort')
+  logger.info(@result_sort)
+  logger.info(@result_sort.class)
 
 
   logger.info('----------Salesforce AP0 status end--------------------')
