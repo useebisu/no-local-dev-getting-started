@@ -172,9 +172,9 @@ get "/herokus" do
   @result = JSON.parse(@hoge)
 
   #sort
-  hogeArrays = @result['Maintenances'].sort_by{|val| val['id']}
+  @hogeArrays = @result['Maintenances'].sort_by{|val| val['id']}
   logger.info('----------array--------------------')
-  hogeArrays.each do |hogeArray|
+  @hogeArrays.each do |hogeArray|
     logger.info(hogeArray['id'])
   end
 
