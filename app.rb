@@ -158,12 +158,17 @@ end
 
 
 require 'heroku-api'
-require 'json'
+require 'rest-client'
 
 # heroku-api
 get "/herokus" do
   @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
   @apps = @heroku_api.get_apps.body
+
+  @test = RestClient.get('http://example.com/resource')
+  logger.info('----------Salesforce AP0 status--------------------')
+  logger.info(@test.inspect)
+  logger.info(@test.class)
 
 =begin
   @apps.each do |app|
@@ -182,23 +187,15 @@ end
 # heroku-api-mante-on
 get "/herokus_mante_on/:app_name" do
   @app_name =  params[:app_name]
-
   @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
-  @test = @heroku_api.post_app_maintenance(@app_name, '1') 
-  logger.info('メンテON')
-  logger.info(@test.inspect)
-
+  @mainte_result = @heroku_api.post_app_maintenance(@app_name, '1') 
   redirect 'herokus'
 end
 
 # heroku-api-mante-off
 get "/herokus_mante_off/:app_name" do
   @app_name =  params[:app_name]
-
   @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
-  @test = @heroku_api.post_app_maintenance(@app_name, '0') 
-  logger.info('メンテOFF')
-  logger.info(@test.inspect)
-
+  @mainte_result = @heroku_api.post_app_maintenance(@app_name, '0') 
   redirect 'herokus'
 end
