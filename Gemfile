@@ -10,9 +10,6 @@ gem 'pg'
 # a little console
 gem "tux"
 
-# debug
-gem "meta_request"
-
 gem "heroku-api"
 gem "json"
 
