@@ -176,7 +176,7 @@ get "/herokus" do
   end
 
   @result_sort['Maintenances'].each do |mainte|
-    logger.info('id:' + mainte['id'])
+    logger.info('id:' + mainte['id'].to_s)
   end
 
 
