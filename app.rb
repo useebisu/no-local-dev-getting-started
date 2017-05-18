@@ -171,9 +171,9 @@ get "/herokus" do
     logger.info('--------------AP情報--------------')
     logger.info(app['name'])
     logger.info(app_info)
+  end
 =end
 
-  end
 
   erb :index_herokus
 end
