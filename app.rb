@@ -4,6 +4,7 @@ require 'rest-client'
 require 'heroku-api'
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'json'
 require './environments'
 
 
@@ -168,6 +169,9 @@ get "/herokus" do
   @hoge = RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
   logger.info('----------Salesforce AP0 status start--------------------')
   logger.info(@hoge)
+  @result = JSON.parse(@hoge)
+  logger.info(@result)
+
   logger.info('----------Salesforce AP0 status end--------------------')
 
 =begin
