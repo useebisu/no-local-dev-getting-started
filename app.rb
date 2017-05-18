@@ -175,7 +175,7 @@ get "/herokus" do
   hogeArrays = @result['Maintenances'].sort_by{|val| val['id']}
   logger.info('----------array--------------------')
   hogeArrays.each do |hogeArray|
-    logger.info(hogeArray)
+    logger.info(hogeArray[id])
   end
 
   logger.info('----------Salesforce AP0 status end--------------------')
