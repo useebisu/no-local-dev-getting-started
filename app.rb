@@ -164,6 +164,8 @@ require 'json'
 get "/herokus" do
   @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
   @apps = @heroku_api.get_apps.body
+  logger.info('あああああああ')
+  logger.info(@apps.class)
 
   # @apps_parse = JSON.parse(@apps)
 
