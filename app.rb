@@ -165,7 +165,7 @@ get "/herokus" do
   @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
   @apps = @heroku_api.get_apps.body
 
-  @test = RestClient.get('http://example.com/resource')
+  @test = RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
   logger.info('----------Salesforce AP0 status--------------------')
   logger.info(@test.inspect)
   logger.info(@test.class)
