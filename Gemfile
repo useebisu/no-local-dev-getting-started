@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.2.5"
 
+gem "thin"
 gem "sinatra" 
 gem "activerecord" 
 gem "sinatra-activerecord"
