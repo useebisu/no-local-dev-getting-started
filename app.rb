@@ -183,7 +183,8 @@ end
 get "/herokus_mante_on/:app_name" do
   @app_name =  params[:app_name]
 
-  heroku.post_app_maintenance(@app_name, '1') 
+  @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
+  @heroku_api.post_app_maintenance(@app_name, '1') 
 
   redirect 'herokus'
 end
@@ -192,7 +193,8 @@ end
 get "/herokus_mante_off/:app_name" do
   @app_name =  params[:app_name]
 
-  @test = heroku.post_app_maintenance(@app_name, '0') 
+  @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
+  @heroku_api.post_app_maintenance(@app_name, '0') 
 
   logger.info('メンテOFF')
   logger.info(@test.inspect)
