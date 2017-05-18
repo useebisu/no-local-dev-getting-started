@@ -1,6 +1,7 @@
 <div class="container">
 
   Heroku-apps<br>
+
   @heroku_api:<%= @heroku_api.inspect %><br><br><br>
   @apps:<%= @apps.inspect %><br>
 
@@ -9,12 +10,16 @@
     <tr>
       <th>id</th>
       <th>app name</th>
+      <th>メンテON</th>
+      <th>メンテOFF</th>
     </tr>
 
     <% @apps.each do |app| %>
       <tr>
         <td><%= app['id'] %></td>
         <td><%= app['name'] %></td>
+        <td><a href="/herokus_mante_on/<%= app['name'] %>">detail</a></p>
+        <td><a href="/herokus_mante_off/<%= app['name'] %>">detail</a></p>
       </tr>
     <% end %>
   </table>
