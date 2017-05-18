@@ -15,3 +15,5 @@ gem "meta_request"
 
 gem "heroku-api"
 gem "json"
+
+gem "rest-client"
