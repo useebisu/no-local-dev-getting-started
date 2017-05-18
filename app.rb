@@ -170,7 +170,15 @@ get "/herokus" do
   logger.info('----------Salesforce AP0 status start--------------------')
   logger.info(@hoge)
   @result = JSON.parse(@hoge)
-  logger.info(@result['Maintenances'])
+
+  @result['Maintenances'].each do |mainte|
+    logger.info('name' + mainte['name'])
+    logger.info('availability' + mainte['message']['availability'])
+    logger.info('plannedStartTime' + mainte['plannedStartTime'])
+    logger.info('plannedStartTime' + mainte['plannedStartTime'])
+    logger.info('updatedAt' + mainte['updatedAt'])
+  end
+
 
   logger.info('----------Salesforce AP0 status end--------------------')
 
