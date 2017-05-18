@@ -155,3 +155,11 @@ post "/gchild_edit_complete" do
   @gchild.save!
   redirect 'gchilds'
 end
+
+
+require 'heroku-api'
+# heroku-api
+get "/herokus" do
+  @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
+  erb :index_herokus
+end
