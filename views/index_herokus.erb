@@ -37,9 +37,9 @@
         <td><%= mainte['id'] %></td>
         <td><%= mainte['name'] %></td>
         <td><%= mainte['message']['availability'] %></td>
-        <td><%= Date.parse(mainte['plannedStartTime']).strftime("%Y年%m月%d日 %H時%M分") %></td>
-        <td><%= Date.parse(mainte['plannedEndTime']).strftime("%Y年%m月%d日 %H時%M分") %></td>
-        <td><%= Date.parse(mainte['updatedAt']).strftime("%Y年%m月%d日 %H時%M分") %></td>
+        <td><%= mainte['plannedStartTime'] %></td>
+        <td><%= mainte['plannedEndTime'] %></td>
+        <td><%= mainte['updatedAt'] %></td>
       </tr>
     <% end %>
   </table>
