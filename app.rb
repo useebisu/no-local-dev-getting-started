@@ -165,11 +165,6 @@ get "/herokus" do
   @heroku_api = Heroku::API.new(:api_key => 'c7283065-0c22-40ee-a227-939559be0bad')
   @apps = @heroku_api.get_apps.body
 
-  @response = RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
-  logger.info('----------Salesforce AP0 status start--------------------')
-  logger.info(@response)
-  logger.info('----------Salesforce AP0 status end--------------------')
-
 =begin
   @apps.each do |app|
     app_info = @heroku_api.get_app(app['name'])
@@ -179,10 +174,8 @@ get "/herokus" do
   end
 =end
 
-
   erb :index_herokus
 end
-
 
 # heroku-api-mante-on
 get "/herokus_mante_on/:app_name" do
@@ -199,3 +192,16 @@ get "/herokus_mante_off/:app_name" do
   @mainte_result = @heroku_api.post_app_maintenance(@app_name, '0') 
   redirect 'herokus'
 end
+
+# sfs
+get "/sfs" do
+
+  @response = RestClient.get('https://api.status.salesforce.com/v1/instances/AP0/status')
+  logger.info('----------Salesforce AP0 status start--------------------')
+  logger.info(@response)
+  logger.info('----------Salesforce AP0 status end--------------------')
+
+  erb :index_sfs
+end
+
+
