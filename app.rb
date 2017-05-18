@@ -172,7 +172,7 @@ get "/herokus" do
   @result = JSON.parse(@hoge)
 
   @result_sort = @result['Maintenances'].sort! do |a, b|
-    b[:id] <=> a[:id]
+    a[:id] <=> b[:id]
   end
 
   logger.info('result_sort')
