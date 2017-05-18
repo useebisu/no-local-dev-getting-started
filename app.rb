@@ -172,11 +172,11 @@ get "/herokus" do
   @result = JSON.parse(@hoge)
 
   @result['Maintenances'].each do |mainte|
-    logger.info('name' + mainte['name'])
-    logger.info('availability' + mainte['message']['availability'])
-    logger.info('plannedStartTime' + mainte['plannedStartTime'])
-    logger.info('plannedStartTime' + mainte['plannedStartTime'])
-    logger.info('updatedAt' + mainte['updatedAt'])
+    logger.info('name:' + mainte['name'])
+    logger.info('availability:' + mainte['message']['availability'])
+    logger.info('plannedStartTime:' + mainte['plannedStartTime'])
+    logger.info('plannedEndTime:' + mainte['plannedEndTime'])
+    logger.info('updatedAt:' + mainte['updatedAt'])
   end
 
 
