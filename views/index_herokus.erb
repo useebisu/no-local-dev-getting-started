@@ -33,14 +33,16 @@
     </tr>
 
     <% @hogeArrays.each do |mainte| %>
-      <tr>
-        <td><%= mainte['id'] %></td>
-        <td><%= mainte['name'] %></td>
-        <td><%= mainte['message']['availability'] %></td>
-        <td><%= mainte['plannedStartTime'] %></td>
-        <td><%= mainte['plannedEndTime'] %></td>
-        <td><%= mainte['updatedAt'] %></td>
-      </tr>
+      <% if mainte['name'] != "heroku-connect-sample2" %>
+        <tr>
+          <td><%= mainte['id'] %></td>
+          <td><%= mainte['name'] %></td>
+          <td><%= mainte['message']['availability'] %></td>
+          <td><%= mainte['plannedStartTime'] %></td>
+          <td><%= mainte['plannedEndTime'] %></td>
+          <td><%= mainte['updatedAt'] %></td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
 
