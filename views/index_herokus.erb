@@ -1,7 +1,6 @@
 <div class="container">
 
   Heroku-apps<br>
-  ※heroku-connect-sample2はメンテナンスONしないで。。<br>
   <table class="table table-striped table-bordered">
     <tr>
       <th>id</th>
@@ -11,7 +10,7 @@
     </tr>
 
     <% @apps.each do |app| %>
-      <% if mainte['name'] != "heroku-connect-sample2" %>
+      <% if app['name'] != "heroku-connect-sample2" %>
       <tr>
         <td><%= app['id'] %></td>
         <td><%= app['name'] %></td>
@@ -24,6 +23,7 @@
 
 
   SF-AP0-メンテナンス予定<br>
+  以下はUTC時間なので、+9時間してください<br>
   <table class="table table-striped table-bordered">
     <tr>
       <th>id</th>
