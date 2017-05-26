@@ -175,7 +175,10 @@ get "/herokus" do
   client = Metaforce.new
   metadata = client.list_metadata('CustomObject').collect { |t|
     t.full_name
-    logger.info(t.full_name)
+    if t.full_name.include?("Grandchild__c")
+      logger.info(t.inspect)
+    end
+
   }
 
   # logger.info(metadata.inspect)
