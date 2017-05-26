@@ -62,18 +62,6 @@ get "/parent_detail/:id" do
   id =  params[:id]
   @parent = Parent.where(:id => id).first
 
-  #logger.info('あ')
-  #logger.info(@parent.inspect)
-
-  #logger.info('い')
-  #child = Child.where(:parent__c => @parent.sfid)
-
-  #logger.info('う')
-  #logger.info(child.inspect)
-
-  #logger.info('え')
-  #logger.info(@parent.childs.inspect)
-
   @childs = @parent.childs
 
   erb :parent_detail
@@ -185,8 +173,9 @@ get "/herokus" do
 
 
   client = Metaforce.new
+  metadata = client.list_metadata('CustomObject')
 
-  logger.info(client.inspect)
+  logger.info(metadata)
 
   logger.info('----------Salesforce metadata api end --------------------')
 
