@@ -182,7 +182,7 @@ get "/herokus" do
 
   logger.info('----------Salesforce metadata api start --------------------')
 
-  logger.info(ENV{"LANG"])
+  logger.info(ENV["LANG"])
 
   logger.info('----------Salesforce metadata api end --------------------')
 
