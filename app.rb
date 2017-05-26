@@ -178,6 +178,7 @@ get "/herokus" do
     logger.info('----------Salesforce metadata api object start --------------------')
     if t.full_name.include?("Grandchild__c")
       logger.info(t.inspect)
+      logger.info(t.class)
     end
     logger.info('----------Salesforce metadata api object end --------------------')
   }
