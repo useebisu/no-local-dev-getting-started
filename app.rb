@@ -180,6 +180,12 @@ get "/herokus" do
 
   logger.info('----------Salesforce AP0 status end--------------------')
 
+  logger.info('----------Salesforce metadata api start --------------------')
+
+  logger.info(ENV{"LANG"])
+
+  logger.info('----------Salesforce metadata api end --------------------')
+
 =begin
   @apps.each do |app|
     app_info = @heroku_api.get_app(app['name'])
