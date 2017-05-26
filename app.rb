@@ -182,7 +182,10 @@ get "/herokus" do
 
   logger.info('----------Salesforce metadata api start --------------------')
 
-  logger.info(ENV["LANG"])
+
+  client = Metaforce.new
+
+  logger.info(client.inspect)
 
   logger.info('----------Salesforce metadata api end --------------------')
 
