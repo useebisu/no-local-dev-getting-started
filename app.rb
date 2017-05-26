@@ -5,6 +5,7 @@ require 'heroku-api'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'json'
+require 'metaforce'
 require './environments'
 
 
