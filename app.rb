@@ -172,9 +172,9 @@ get "/herokus" do
   logger.info('----------Salesforce metadata api start --------------------')
 
 
+=begin
+  # salesforceメタデータ
   client = Metaforce.new
-
-
   metadata = client.list_metadata('CustomField').collect { |t|
     if t.full_name.include?("Grandchild__c")
     logger.info('----------Salesforce metadata api object start --------------------')
@@ -185,7 +185,6 @@ get "/herokus" do
   }
   logger.info('----------Salesforce metadata api end --------------------')
 
-=begin
   @apps.each do |app|
     app_info = @heroku_api.get_app(app['name'])
     logger.info('--------------AP情報--------------')
