@@ -173,9 +173,9 @@ get "/herokus" do
 
 
   client = Metaforce.new
-  metadata = client.list_metadata('CustomObject').collect { |t| t.full_name }
+  metadata = client.list_metadata('CustomObject')
 
-  logger.info(metadata)
+  logger.info(metadata.inspect)
 
   logger.info('----------Salesforce metadata api end --------------------')
 
