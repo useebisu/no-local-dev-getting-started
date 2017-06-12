@@ -100,7 +100,15 @@ post "/chile_new_complete" do
   child.parent__c = parent.sfid
   child.sei__c = params[:sei__c]
   child.mei__c = params[:mei__c]
-  child.external_id__c = SecureRandom.uuid
+logger.info('----------子登録-uuid start--------------------')
+  uuid = SecureRandom.uuid
+  child.external_id__c = uuid
+
+logger.info(uuid)
+logger.info('----------子登録-uuid end--------------------')
+
+
+
   child.save!
   path = 'parent_detail/' + parent_id.to_s
   redirect path
